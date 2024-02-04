@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const audio = new Audio('Ed Sheeran - Perfect.mp3');
 const phrases = [
   "No",
   "Are you sure?",
@@ -15,7 +14,7 @@ const phrases = [
 function App() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [audioPlaying, setAudioPlaying] = useState(false);
   const yesButtonSize = noCount * 20 + 16;
 
   function handleNoClick() {
@@ -27,12 +26,7 @@ function App() {
   }
 
   function handlePlayButtonClick() {
-    if (isAudioPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
-    setIsAudioPlaying(!isAudioPlaying);
+    setAudioPlaying(true);
   }
 
   return (
@@ -44,11 +38,15 @@ function App() {
             src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
             className="kissing-bears"
           />
-          <div className="text">Yay!!!! I love you Momo!</div>
-          <audio loop>
-            <source src="Ed Sheeran - Perfect.mp3" type="audio/mp3" />
-            Your browser does not support the audio element.
-          </audio>
+          <div className="text">Yay!!!! I Love you Momo!</div>
+          {audioPlaying ? (
+            <audio autoPlay loop>
+              <source src="src\Ed Sheeran - Perfect.mp3" type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+          ) : (
+            <button onClick={handlePlayButtonClick}>Play Background Music</button>
+          )}
         </>
       ) : (
         <>
@@ -61,12 +59,6 @@ function App() {
           <div className="question">Will you be my Valentine?</div>
           <div className="buttons-container">
             <button
-              className={`playButton ${isAudioPlaying ? 'pause' : 'play'}`}
-              onClick={handlePlayButtonClick}
-            >
-              {isAudioPlaying ? 'Pause' : 'Play'}
-            </button>
-            <button
               className="yesButton"
               style={{ fontSize: yesButtonSize }}
               onClick={() => setYesPressed(true)}
@@ -77,8 +69,11 @@ function App() {
               {getNoButtonText()}
             </button>
           </div>
-          <audio loop>
-            <source src="Ed Sheeran - Perfect.mp3" type="audio/mp3" />
+          <audio autoPlay loop>
+            <source
+              src="src\Ed Sheeran - Perfect.mp3"
+              type="audio/mp3"
+            />
             Your browser does not support the audio element.
           </audio>
         </>
