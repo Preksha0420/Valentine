@@ -11,6 +11,8 @@ const phrases = [
   "You're breaking my heart :(",
 ];
 
+// ... (previous imports)
+
 function App() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
@@ -20,11 +22,21 @@ function App() {
   useEffect(() => {
     const audioElement = document.getElementById("valentineAudio");
 
-    if (audioPlaying) {
-      audioElement.play();
-    } else {
+    if (audioPlaying && audioElement) {
+      audioElement.play().catch(error => {
+        // Autoplay was prevented, handle it here
+        console.error("Autoplay was prevented:", error);
+      });
+    } else if (audioElement) {
       audioElement.pause();
     }
+
+    return () => {
+      // Cleanup function
+      if (audioElement) {
+        audioElement.pause();
+      }
+    };
   }, [audioPlaying]);
 
   function handleNoClick() {
