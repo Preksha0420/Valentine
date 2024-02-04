@@ -11,18 +11,10 @@ const phrases = [
   "You're breaking my heart :(",
 ];
 
-const yesPhrases = [
-  "Yay!!!! I Love you Momo!",
-  "You're my Valentine!",
-  "This is the best day ever!",
-  // Add more phrases as needed
-];
-
 function App() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [yesPhraseIndex, setYesPhraseIndex] = useState(0);
   const yesButtonSize = noCount * 20 + 16;
 
   function handleNoClick() {
@@ -33,15 +25,8 @@ function App() {
     return phrases[Math.min(noCount, phrases.length - 1)];
   }
 
-  function handleYesClick() {
-    if (yesPhraseIndex < yesPhrases.length - 1) {
-      // If there are more phrases, increment the index
-      setYesPhraseIndex((prevIndex) => prevIndex + 1);
-    } else {
-      // If it's the last phrase, set yesPressed to true
-      setYesPressed(true);
-      setIsPlaying(true);
-    }
+  function handlePlayPause() {
+    setIsPlaying(!isPlaying);
   }
 
   return (
@@ -53,7 +38,7 @@ function App() {
             src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
             className="kissing-bears"
           />
-          <div className="text">{yesPhrases[yesPhraseIndex]}</div>
+          <div className="text">Yay!!!! I Love you Momo!</div>
           <audio autoPlay={isPlaying} loop>
             <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music2.mp3" type="audio/mp3" />
             Your browser does not support the audio element.
@@ -72,14 +57,14 @@ function App() {
             <button
               className="yesButton"
               style={{ fontSize: yesButtonSize }}
-              onClick={handleYesClick}
+              onClick={() => setYesPressed(true)}
             >
               Yes
             </button>
             <button onClick={handleNoClick} className="noButton">
               {getNoButtonText()}
             </button>
-            <button onClick={() => setIsPlaying(!isPlaying)} className="playPauseButton">
+            <button onClick={handlePlayPause} className="playPauseButton">
               {isPlaying ? "Pause Music" : "Play Music"}
             </button>
           </div>
