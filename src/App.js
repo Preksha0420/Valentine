@@ -39,14 +39,6 @@ function App() {
             className="kissing-bears"
           />
           <div className="text">Yay!!!! I Love you Momo!</div>
-          {audioPlaying ? (
-            <audio autoPlay loop>
-              <source src="src\Ed Sheeran - Perfect.mp3" type="audio/mp3" />
-              Your browser does not support the audio element.
-            </audio>
-          ) : (
-            <button onClick={handlePlayButtonClick}>Play Background Music</button>
-          )}
         </>
       ) : (
         <>
@@ -69,14 +61,16 @@ function App() {
               {getNoButtonText()}
             </button>
           </div>
-          <audio autoPlay loop>
-            <source
-              src="src\Ed Sheeran - Perfect.mp3"
-              type="audio/mp3"
-            />
-            Your browser does not support the audio element.
-          </audio>
         </>
+      )}
+      <button className="playButton" onClick={handlePlayButtonClick}>
+        ▶️
+      </button>
+      {audioPlaying && (
+        <audio autoPlay loop>
+          <source src="src\Ed Sheeran - Perfect.mp3" type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
       )}
     </div>
   );

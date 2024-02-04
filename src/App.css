@@ -59,38 +59,12 @@
 }
 
 .playButton {
-  font-size: 16px;
+  font-size: 24px;
   background-color: #ff3366;
   color: white;
-  padding: 8px 16px;
+  padding: 12px 24px;
   border: none;
   cursor: pointer;
-  border-radius: 50%;
-  position: relative;
-  margin-top: 10px;
-}
-
-.playButton::before,
-.playButton::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 16px;
-  height: 24px;
-  background-color: #ff3366;
-  border-radius: 50%;
-}
-
-.playButton::before {
-  left: -8px;
-  transform: rotate(45deg);
-}
-
-.playButton::after {
-  left: 8px;
-  transform: rotate(-45deg);
-}
-
-.playButton:hover {
-  background-color: #ff1a4d;
+  border-radius: 5px;
+  margin-top: 20px;
 }
