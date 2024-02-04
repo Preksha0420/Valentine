@@ -59,38 +59,38 @@
 }
 
 .playButton {
-  font-size: 16px; /* Adjust the font size */
-  background-color: #ff3366; /* Romantic pink color */
+  font-size: 16px;
+  background-color: #ff3366;
   color: white;
   padding: 8px 16px;
   border: none;
   cursor: pointer;
-  border-radius: 50%; /* Make it a circle */
+  border-radius: 50%;
   position: relative;
-  margin-top: 10px; /* Adjust the margin as needed */
+  margin-top: 10px;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 16px; /* Adjust the size of the heart */
-    height: 24px; /* Adjust the size of the heart */
-    background-color: #ff3366; /* Romantic pink color */
-    border-radius: 50%;
-  }
+.playButton::before,
+.playButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 16px;
+  height: 24px;
+  background-color: #ff3366;
+  border-radius: 50%;
+}
 
-  &::before {
-    left: -8px;
-    transform: rotate(45deg);
-  }
+.playButton::before {
+  left: -8px;
+  transform: rotate(45deg);
+}
 
-  &::after {
-    left: 8px;
-    transform: rotate(-45deg);
-  }
+.playButton::after {
+  left: 8px;
+  transform: rotate(-45deg);
 }
 
 .playButton:hover {
-  background-color: #ff1a4d; /* Darker pink color on hover */
+  background-color: #ff1a4d;
 }

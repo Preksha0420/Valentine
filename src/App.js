@@ -27,13 +27,12 @@ function App() {
   }
 
   function handlePlayButtonClick() {
-    setIsAudioPlaying(!isAudioPlaying);
-
     if (isAudioPlaying) {
       audio.pause();
     } else {
       audio.play();
     }
+    setIsAudioPlaying(!isAudioPlaying);
   }
 
   return (
@@ -46,7 +45,7 @@ function App() {
             className="kissing-bears"
           />
           <div className="text">Yay!!!! I love you Momo!</div>
-          <audio autoPlay loop >
+          <audio loop>
             <source src="Ed Sheeran - Perfect.mp3" type="audio/mp3" />
             Your browser does not support the audio element.
           </audio>
@@ -78,7 +77,7 @@ function App() {
               {getNoButtonText()}
             </button>
           </div>
-          <audio autoPlay loop >
+          <audio loop>
             <source src="Ed Sheeran - Perfect.mp3" type="audio/mp3" />
             Your browser does not support the audio element.
           </audio>
