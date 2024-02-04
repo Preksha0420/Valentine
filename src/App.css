@@ -1,0 +1,96 @@
+.valentine-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lobster', cursive; /* Change to your preferred romantic font */
+  color: #ff3366; /* Romantic pink color */
+  text-align: center;
+  padding: 20px;
+}
+
+.heart-bears {
+  width: 300px; /* Adjust the size as needed */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.kissing-bears {
+  width: 300px; /* Adjust the size as needed */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.question {
+  font-size: 24px; /* Adjust the font size */
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 28px; /* Adjust the font size */
+  font-style: italic; /* Italics for a romantic touch */
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.yesButton {
+  font-size: 20px; /* Adjust the font size */
+  background-color: #ff3366; /* Romantic pink color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.noButton {
+  font-size: 20px; /* Adjust the font size */
+  background-color: #ffc0cb; /* Light pink color for a romantic feel */
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.playButton {
+  font-size: 16px; /* Adjust the font size */
+  background-color: #ff3366; /* Romantic pink color */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+  position: relative;
+  margin-top: 10px; /* Adjust the margin as needed */
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 16px; /* Adjust the size of the heart */
+    height: 24px; /* Adjust the size of the heart */
+    background-color: #ff3366; /* Romantic pink color */
+    border-radius: 50%;
+  }
+
+  &::before {
+    left: -8px;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    left: 8px;
+    transform: rotate(-45deg);
+  }
+}
+
+.playButton:hover {
+  background-color: #ff1a4d; /* Darker pink color on hover */
+}
