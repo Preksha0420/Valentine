@@ -67,7 +67,7 @@ function App() {
         ▶️
       </button>
       {audioPlaying && (
-        <audio loop>
+        <audio controls loop>
           <source src="Ed Sheeran - Perfect.mp3" type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
