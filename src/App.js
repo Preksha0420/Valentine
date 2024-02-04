@@ -34,11 +34,14 @@ function App() {
   }
 
   function handleYesClick() {
-    setYesPressed(true);
-    setIsPlaying(true);
-
-    // Cycle through yesPhrases
-    setYesPhraseIndex((prevIndex) => (prevIndex + 1) % yesPhrases.length);
+    if (yesPhraseIndex < yesPhrases.length - 1) {
+      // If there are more phrases, increment the index
+      setYesPhraseIndex((prevIndex) => prevIndex + 1);
+    } else {
+      // If it's the last phrase, set yesPressed to true
+      setYesPressed(true);
+      setIsPlaying(true);
+    }
   }
 
   return (
