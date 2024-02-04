@@ -11,33 +11,11 @@ const phrases = [
   "You're breaking my heart :(",
 ];
 
-// ... (previous imports)
-
 function App() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
-  const [audioPlaying, setAudioPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const yesButtonSize = noCount * 20 + 16;
-
-  useEffect(() => {
-    const audioElement = document.getElementById("valentineAudio");
-
-    if (audioPlaying && audioElement) {
-      audioElement.play().catch(error => {
-        // Autoplay was prevented, handle it here
-        console.error("Autoplay was prevented:", error);
-      });
-    } else if (audioElement) {
-      audioElement.pause();
-    }
-
-    return () => {
-      // Cleanup function
-      if (audioElement) {
-        audioElement.pause();
-      }
-    };
-  }, [audioPlaying]);
 
   function handleNoClick() {
     setNoCount(noCount + 1);
@@ -47,19 +25,8 @@ function App() {
     return phrases[Math.min(noCount, phrases.length - 1)];
   }
 
-  function handlePlayButtonClick() {
-    const audioElement = document.getElementById("valentineAudio");
-  
-    if (audioElement.paused) {
-      audioElement.play().catch(error => {
-        // Autoplay was prevented, handle it here
-        console.error("Autoplay was prevented:", error);
-      });
-    } else {
-      audioElement.pause();
-    }
-  
-    setAudioPlaying(!audioPlaying);
+  function handlePlayPause() {
+    setIsPlaying(!isPlaying);
   }
 
   return (
@@ -72,6 +39,10 @@ function App() {
             className="kissing-bears"
           />
           <div className="text">Yay!!!! I Love you Momo!</div>
+          <audio autoPlay={isPlaying} loop>
+            <source src="your_background_music.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
         </>
       ) : (
         <>
@@ -93,16 +64,17 @@ function App() {
             <button onClick={handleNoClick} className="noButton">
               {getNoButtonText()}
             </button>
+            <button onClick={handlePlayPause} className="playPauseButton">
+              {isPlaying ? "Pause Music" : "Play Music"}
+            </button>
           </div>
+          {isPlaying && (
+            <audio autoPlay loop>
+              <source src="your_background_music.mp3" type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+          )}
         </>
-      )}
-      <button className="playButton" onClick={handlePlayButtonClick}>
-        ▶️
-      </button>
-      {audioPlaying && (
-        <audio id="valentineAudio" loop controls>
-          <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music.mp3" type="audio/mp3" />
-        </audio>
       )}
     </div>
   );
