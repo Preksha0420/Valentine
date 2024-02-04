@@ -67,7 +67,7 @@ function App() {
         ▶️
       </button>
       {audioPlaying && (
-        <audio>
+        <audio loop autoPlay>
           <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music.mp3" type="audio/mp3" />
         </audio>
       )}
