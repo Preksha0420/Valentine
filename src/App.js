@@ -26,7 +26,7 @@ function App() {
   }
 
   function handlePlayButtonClick() {
-    setAudioPlaying(true);
+    setAudioPlaying(!audioPlaying);
   }
 
   return (
@@ -67,9 +67,8 @@ function App() {
         ▶️
       </button>
       {audioPlaying && (
-        <audio controls loop>
-          <source src="Valentine/Ed Sheeran - Perfect.mp3" type="audio/mp3" />
-          Your browser does not support the audio element.
+        <audio controls>
+          <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music.mp3" type="audio/mp3" />
         </audio>
       )}
     </div>
