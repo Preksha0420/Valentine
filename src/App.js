@@ -12,10 +12,9 @@ const phrases = [
 ];
 
 const yesPhrases = [
-  "Better get me flowers, okay?",
-  "The No option is still available, no backsies after this one",
-  "We are the best, one last thing",
-  "I Love you Momo!"
+  "Yay!!!! I Love you Momo!",
+  "You're my Valentine!",
+  "This is the best day ever!",
   // Add more phrases as needed
 ];
 
