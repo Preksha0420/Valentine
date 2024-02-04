@@ -40,7 +40,7 @@ function App() {
           />
           <div className="text">Yay!!!! I Love you Momo!</div>
           <audio autoPlay={isPlaying} loop>
-            <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music.mp3" type="audio/mp3" />
+            <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music1.mp3" type="audio/mp3" />
             Your browser does not support the audio element.
           </audio>
         </>
@@ -70,7 +70,7 @@ function App() {
           </div>
           {isPlaying && (
             <audio autoPlay loop>
-              <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music.mp3" type="audio/mp3" />
+              <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music1.mp3" type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
           )}

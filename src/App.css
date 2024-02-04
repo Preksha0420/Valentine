@@ -58,13 +58,17 @@
   border-radius: 5px;
 }
 
-.playButton {
-  font-size: 24px;
-  background-color: #ff3366;
+.playPauseButton {
+  background-color: pink;
   color: white;
-  padding: 12px 24px;
   border: none;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 20px;
+  margin-top: 10px; /* Adjust the margin based on your layout */
+}
+
+.playPauseButton:hover {
+  background-color: #ff66b2; /* Lighter pink on hover */
 }
