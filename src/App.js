@@ -11,10 +11,19 @@ const phrases = [
   "You're breaking my heart :(",
 ];
 
+const yesPhrases = [
+  "Better get me flowers, okay?",
+  "The No option is still available, no backsies after this one",
+  "We are the best, one last thing",
+  "I Love you Momo!"
+  // Add more phrases as needed
+];
+
 function App() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [yesPhraseIndex, setYesPhraseIndex] = useState(0);
   const yesButtonSize = noCount * 20 + 16;
 
   function handleNoClick() {
@@ -25,8 +34,12 @@ function App() {
     return phrases[Math.min(noCount, phrases.length - 1)];
   }
 
-  function handlePlayPause() {
-    setIsPlaying(!isPlaying);
+  function handleYesClick() {
+    setYesPressed(true);
+    setIsPlaying(true);
+
+    // Cycle through yesPhrases
+    setYesPhraseIndex((prevIndex) => (prevIndex + 1) % yesPhrases.length);
   }
 
   return (
@@ -38,7 +51,7 @@ function App() {
             src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
             className="kissing-bears"
           />
-          <div className="text">Yay!!!! I Love you Momo!</div>
+          <div className="text">{yesPhrases[yesPhraseIndex]}</div>
           <audio autoPlay={isPlaying} loop>
             <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music2.mp3" type="audio/mp3" />
             Your browser does not support the audio element.
@@ -57,14 +70,14 @@ function App() {
             <button
               className="yesButton"
               style={{ fontSize: yesButtonSize }}
-              onClick={() => setYesPressed(true)}
+              onClick={handleYesClick}
             >
               Yes
             </button>
             <button onClick={handleNoClick} className="noButton">
               {getNoButtonText()}
             </button>
-            <button onClick={handlePlayPause} className="playPauseButton">
+            <button onClick={() => setIsPlaying(!isPlaying)} className="playPauseButton">
               {isPlaying ? "Pause Music" : "Play Music"}
             </button>
           </div>
