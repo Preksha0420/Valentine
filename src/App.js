@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const phrases = [
@@ -16,6 +16,16 @@ function App() {
   const [yesPressed, setYesPressed] = useState(false);
   const [audioPlaying, setAudioPlaying] = useState(false);
   const yesButtonSize = noCount * 20 + 16;
+
+  useEffect(() => {
+    const audioElement = document.getElementById("valentineAudio");
+
+    if (audioPlaying) {
+      audioElement.play();
+    } else {
+      audioElement.pause();
+    }
+  }, [audioPlaying]);
 
   function handleNoClick() {
     setNoCount(noCount + 1);
@@ -67,7 +77,7 @@ function App() {
         ▶️
       </button>
       {audioPlaying && (
-        <audio loop autoPlay>
+        <audio id="valentineAudio" loop>
           <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music.mp3" type="audio/mp3" />
         </audio>
       )}
