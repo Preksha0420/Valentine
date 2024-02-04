@@ -36,6 +36,17 @@ function App() {
   }
 
   function handlePlayButtonClick() {
+    const audioElement = document.getElementById("valentineAudio");
+  
+    if (audioElement.paused) {
+      audioElement.play().catch(error => {
+        // Autoplay was prevented, handle it here
+        console.error("Autoplay was prevented:", error);
+      });
+    } else {
+      audioElement.pause();
+    }
+  
     setAudioPlaying(!audioPlaying);
   }
 
@@ -77,7 +88,7 @@ function App() {
         ▶️
       </button>
       {audioPlaying && (
-        <audio id="valentineAudio" loop>
+        <audio id="valentineAudio" loop controls>
           <source src="https://raw.githubusercontent.com/Preksha0420/Valentine/master/music.mp3" type="audio/mp3" />
         </audio>
       )}
